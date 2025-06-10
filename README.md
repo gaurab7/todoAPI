@@ -1,4 +1,12 @@
 # todoAPI
 basic backend todo API
-functionalities:
+
+#desc
+the html is just a placeholder for now
+
+# techstack
+NodeJS
+ExpressJS
+JWT
+SQLITE
 
