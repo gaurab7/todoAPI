@@ -1,36 +1,33 @@
 import express from 'express'
+import path, { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import authRoutes from './routes/authRoutes.js'
+import todoRoutes from './routes/todoRoutes.js'
 
 const app = express()
 
 //checks if .env has a PORT defined to use it, if no exist uses 8000
 const PORT = process.env.PORT || 8000
 
-//user json
-const users = [
-  { id: 1, username: '', passwordHash: '' } 
-];
-const todos = [
-    { id: 1, title: 'Buy groceries', completed: false },
-    { id: 2, title: 'Walk the dog', completed: true }
-  ];
+//#region 
+//get filename
+const fname = fileURLToPath(import.meta.url)
+//get directory
+const dir = dirname(fname)
+// Serve static files from the 'public' folder
+app.use(express.static(path.join(dir, '../public')))
+//#endregion
 
 //enables to accept json and intepret it
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.redirect('/login');
-});
-app.get('/login', (req, res) => {
- 
+  res.sendFile(path.join(dir, '../public', 'login.html'))
 })
 
-
-
-app.post('/login', (req, res) => {
-
-  const {un, pw} = req.body
-  res.send(`${un}, ${pw}`)
-})
+//ROUTES
+app.use('/auth', authRoutes)
+app.use('/home', todoRoutes)
 
 //starts server & listens for incomming HTTP requests on specified port
 app.listen(PORT, () => {
