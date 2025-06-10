@@ -3,6 +3,7 @@ import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import authRoutes from './routes/authRoutes.js'
 import todoRoutes from './routes/todoRoutes.js'
+import authM  from './middlerware/authM.js'
 
 const app = express()
 
@@ -27,7 +28,7 @@ app.get('/', (req, res) => {
 
 //ROUTES
 app.use('/auth', authRoutes)
-app.use('/home', todoRoutes)
+app.use('/home', authM, todoRoutes)
 
 //starts server & listens for incomming HTTP requests on specified port
 app.listen(PORT, () => {

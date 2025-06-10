@@ -5,11 +5,17 @@ const router = express.Router()
  
 //gets todo data for logged user
 router.get('/', (req, res) =>{
-
+    const tasks = db.prepare(`SELECT * FROM todos WHERE userid = ?`)
+    //.get returns the first element only, .all returns all elements of the array
+    //here the midleware authenticates the user and provides the req
+    const taskslist = tasks.all(req.userid)
+    res.json(taskslist)
+   
 })
 //create new tasks
 router.post('/', (req, res) =>{
-
+    const newtask = db.prepare(`INSERT INTO todos(id, userid, task) VALUES(?, ?, ?)`)
+    const taskAdded = newtask.run
 })
 //update task
 //'/:id' to specify which task to update 

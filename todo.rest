@@ -17,3 +17,6 @@ Content-Type: application/json
     "username": "gaurab",
     "password": "admin"
 }
+###
+GET http://localhost:8000/home/
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5NTYwNzAwLCJleHAiOjE3NDk2NDcxMDB9.-FWU4XKnf2C1q5hxjwsaVsL8rlSJbXs3mOR6AemhO_U"
