@@ -10,11 +10,14 @@ no fronted, tested using REST Client
 
 - **`POST /auth/register`**  
   Registers a new user and provides a JWT token
+
   **Body:** `{ "username": "yourname", "password": "yourpass" }`
   **Returns:** `{ "token": "JWT_TOKEN_HERE" }`
 
 - **`POST /auth/login`**  
   Log in and receive a JWT token
+
+  
   **Body:** `{ "username": "yourname", "password": "yourpass" }`  
   **Returns:** `{ "token": "JWT_TOKEN_HERE" }`
 
