@@ -1,15 +1,15 @@
 ### GET /
 GET http://localhost:8000
 
-###
+### Registeration
 POST http://localhost:8000/auth/register
 Content-Type: application/json
 
 {
-    "username": "gaurab",
+    "username": "g",
     "password": "admin"
 }
-###
+### Login
 POST http://localhost:8000/auth/login
 Content-Type: application/json
 
@@ -17,6 +17,30 @@ Content-Type: application/json
     "username": "gaurab",
     "password": "admin"
 }
-###
-GET http://localhost:8000/home/
-Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5NTYwNzAwLCJleHAiOjE3NDk2NDcxMDB9.-FWU4XKnf2C1q5hxjwsaVsL8rlSJbXs3mOR6AemhO_U"
+### Get all tasks
+GET http://localhost:8000/home/todos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5NjQ4NzY1LCJleHAiOjE3NDk3MzUxNjV9.AR6xGosO1xQMK3m5BKRDuq_uLPvSbGQ_75kxdVntBhg
+
+### Create new task
+POST http://localhost:8000/home/todos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5NjQ4NzY1LCJleHAiOjE3NDk3MzUxNjV9.AR6xGosO1xQMK3m5BKRDuq_uLPvSbGQ_75kxdVntBhg
+Content-Type: application/json
+
+{
+    "userid": "1",
+    "task": "eat some food"
+}
+
+### Update a tasks state
+PUT http://localhost:8000/home/todos/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5NjQ4NzY1LCJleHAiOjE3NDk3MzUxNjV9.AR6xGosO1xQMK3m5BKRDuq_uLPvSbGQ_75kxdVntBhg
+Content-Type: application/json
+
+{
+    "state" : 1
+}
+ 
+### Delete a task
+DELETE  http://localhost:8000/home/todos/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5NjQ4NzY1LCJleHAiOjE3NDk3MzUxNjV9.AR6xGosO1xQMK3m5BKRDuq_uLPvSbGQ_75kxdVntBhg
+
