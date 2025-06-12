@@ -9,12 +9,15 @@ no fronted, tested using REST Client
 ### 🔐 Auth
 
 - **`POST /auth/register`**  
-  Register a new user.  
+  Registers a new user and provides a JWT token
+
   **Body:** `{ "username": "yourname", "password": "yourpass" }`
   **Returns:** `{ "token": "JWT_TOKEN_HERE" }`
 
 - **`POST /auth/login`**  
-  Log in and receive a JWT token.  
+  Log in and receive a JWT token
+
+  
   **Body:** `{ "username": "yourname", "password": "yourpass" }`  
   **Returns:** `{ "token": "JWT_TOKEN_HERE" }`
 
@@ -30,11 +33,11 @@ no fronted, tested using REST Client
 
 - **`POST /todos`**  
   Add a new task.  
-  **Body:** `{ "title": "Buy milk", "description": "From grocery store" }`
+  **Body:** `{ "task" : "read a book" }`
 
 - **`PUT /todos/:id`**  
   Update a task by ID.  
-  **Body:** `{ "title": "Updated", "done": true }`
+  **Body:** `{ "state" : 1 }`
 
 - **`DELETE /todos/:id`**  
   Delete a task by ID.
