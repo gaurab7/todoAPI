@@ -15,6 +15,7 @@ function authM(req, res, next)
             console.log(token) 
             console.log(err)
             return res.status(401).json({msg: 'Invalid Token'})}
+        //all todo API endpoint requests get the userid here
         req.userid = decoded.id
         next()
     })
